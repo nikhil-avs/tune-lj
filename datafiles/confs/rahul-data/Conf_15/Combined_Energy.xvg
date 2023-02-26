@@ -1,0 +1,31 @@
+# This file was created Fri Jun 14 11:05:24 2019
+# Created by:
+#                  :-) GROMACS - gmx energy, VERSION 5.1.4 (-:
+# 
+# Executable:   /opt/softwares/apps/gromacs-5.1.4/bin/gmx_mpi
+# Data prefix:  /opt/softwares/apps/gromacs-5.1.4
+# Command line:
+#   gmx_mpi energy -f Conf_15/deme-tfsi.edr -o Conf_15/Combined_Energy.xvg
+# gmx energy is part of G R O M A C S:
+#
+# Getting the Right Output Means no Artefacts in Calculating Stuff
+#
+@    title "GROMACS Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(kJ/mol)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Bond"
+@ s1 legend "Angle"
+@ s2 legend "Proper Dih."
+@ s3 legend "LJ-14"
+@ s4 legend "Coulomb-14"
+@ s5 legend "LJ (SR)"
+@ s6 legend "Coulomb (SR)"
+@ s7 legend "Potential"
+    0.000000   26.124029   46.346134  178.244827   10.141753  508.957153   -8.946698  -85.803116  675.064087

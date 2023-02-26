@@ -1,0 +1,84 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;NPT MD simulation GROMACS;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;Run Control;;;;;;;;;;;;;;;;;
+
+integrator                   =    md                 ; leap-frog integrator
+tinit                        =    0                   ; starting time for the simulation
+nsteps                       =    1                ; number of MD steps = 1 ns
+dt                           =    0.0005                  ; time step [ps]
+init-step                    =    0
+comm_mode                    =    Linear                 ; remove COM's translation 
+nstcomm                      =    100                     ; frequency of COM's motion removal [steps]
+comm_grps                    =    system                 ; group(s) for COM's motion removal
+
+
+;;;;;;;;;;Output Control;;;;;;;;;;;;;;;;;;;
+
+nstxout                      =    1                  ; frequency of writing coordinates to output trajectory
+nstvout                      =    1                  ; frequency of writing velocities to output trajectory
+nstfout                      =    1                ; frequency of writing forces to output trajectory
+nstlog                       =    1                ; frequency of writing energies to log file
+nstcalcenergy                =    1                ; calculating the energies
+nstenergy                    =    1               ; writing energies to energy file
+energygrps                   =    system              ; groups to write short-ranged non-bonded potential energies to the energy file
+;constraint-algorithm         =    lincs
+;constraints                  =    h-bonds
+
+
+
+;;;;;;;;;;Neighbor searching;;;;;;;;;;;;;;;;;
+
+cutoff-scheme                =    group              ; generate a pair list with buffering
+nstlist                      =    10                  ; frequency to update neighbor list and long range forces [steps]
+ns-type                      =    simple                ; make a grid in the box and and only check atoms in neighboring grid cells
+pbc                          =    no                 ; PBCs in all directions
+verlet-buffer-tolerance      =    -1                  ; use "rlist"
+rlist                        =    3.0                ; cut-off distance for the short-range neighbor list [nm]
+
+;;;;;;;;;;Electrostatics;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;This part is not important for neutral atoms such as Argon, but has to be specified as job will not run if rvdw /= rcoulomb. rcoulomb default is 1.0 [nm];;;;;;;;;;;;;;;;;;;;;;;;;;
+
+coulombtype                  =    Cut-off                 ; Particle-Mesh Ewald for long-range electrostatics
+coulomb-modifier             =    None     ; shift the Coulomb potential by a constant such that it is zero at the cut-off
+rcoulomb                     =    3.0                 ; short-range electrostatic cut-off [nm]
+
+;;;;;;;;;;;;;;;van der Waals;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+vdwtype                      =    Cut-off             ; twin-range cut-offs with rlist and rvdw
+vdw-modifier                 =    None     ; shift the vdW potential by a constant such that it is zero at the cut-off
+rvdw                         =    3.0                 ; short-range van der Waals cut-off [nm]
+DispCorr                     =    no            ; apply long range dispersion corrections to Energy and pressure 
+
+;;;;;;;;;;;;;;;;;;Ewald;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;fourierspacing               =    0.1                ; grid spacing for FFT [nm]
+;pme-order                    =    4                   ; interpolation order for PME
+;ewald-rtol                   =    1e-5                ; The relative strength of the Ewald-shifted direct potential at "rcoulomb" is given by "ewald-rtol"
+;ewald-geometry               =    3d                  ; The Ewald sum is performed in all three dimensions
+
+
+;;;;;;;;;;;;;; Temperature coupling;;;;;;;;;;;;;;;;;;;;;;;;
+
+tcoupl                       =    v-rescale           ; temperature coupling with velocity rescaling with a stochastic term
+nsttcouple                   =    10                   ; frequency of temperature coupling [steps]
+tc-grps                      =    system              ; group to couple with the temperature bath
+tau-t                        =    0.5                 ; time constant for temperature coupling [ps]
+ref-t                        =    298.5                  ; reference temperature for coupling (one for each group) [K]
+
+;;;;;;;;;;;;;;;Pressure coupling;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+pcoupl                       =    no        ; extended-ensemble pressure coupling
+
+;;;;;;;;;;;;;;;;Velocity generation;;;;;;;;;;;;;;;;;;;;;;;;;
+
+gen-vel                      =    no                ; assign velocities from Maxwell distribution. Do not read them from .cpt file
+;gen-temp                     =  0
+
+
+
+
+
+
+
+
+

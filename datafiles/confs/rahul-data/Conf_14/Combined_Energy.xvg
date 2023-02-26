@@ -1,0 +1,31 @@
+# This file was created Fri Jun 14 11:05:23 2019
+# Created by:
+#                  :-) GROMACS - gmx energy, VERSION 5.1.4 (-:
+# 
+# Executable:   /opt/softwares/apps/gromacs-5.1.4/bin/gmx_mpi
+# Data prefix:  /opt/softwares/apps/gromacs-5.1.4
+# Command line:
+#   gmx_mpi energy -f Conf_14/deme-tfsi.edr -o Conf_14/Combined_Energy.xvg
+# gmx energy is part of G R O M A C S:
+#
+# Guyana Rwanda Oman Macau Angola Cameroon Senegal
+#
+@    title "GROMACS Energies"
+@    xaxis  label "Time (ps)"
+@    yaxis  label "(kJ/mol)"
+@TYPE xy
+@ view 0.15, 0.15, 0.75, 0.85
+@ legend on
+@ legend box on
+@ legend loctype view
+@ legend 0.78, 0.8
+@ legend length 2
+@ s0 legend "Bond"
+@ s1 legend "Angle"
+@ s2 legend "Proper Dih."
+@ s3 legend "LJ-14"
+@ s4 legend "Coulomb-14"
+@ s5 legend "LJ (SR)"
+@ s6 legend "Coulomb (SR)"
+@ s7 legend "Potential"
+    0.000000   25.167171   46.329250  178.028824    9.943702  509.374939   -0.766139  -90.274406  677.803345

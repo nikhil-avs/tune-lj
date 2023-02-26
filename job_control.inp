@@ -1,0 +1,44 @@
+##--PARAM--## NUMBER OF ATOM TYPES TO BE TUNED ==
+3
+##--SCANS--## NUMBER OF ENERGY SCANS ==
+4
+##--FILES--## HEAD DIRECTORY ==
+/home/nikhil/projects/7_smt_project/deme-tfsi-tunelj/
+##--FILES--## MD HEAD DIRECTORY ==
+/home/nikhil/projects/7_smt_project/deme-tfsi-tunelj/datafiles/MD/
+##--FILES--## QM HEAD DIRECTORY ==
+/home/nikhil/projects/7_smt_project/deme-tfsi-tunelj/datafiles/QM/
+##--FILES--## QM DATA SCANS INFO FILE NAME ==
+all-qmscans.info
+##--FILES--## CONFS INFO FILE NAME ==
+all-mdscans.info
+##--FILES--## MDP FILE NAME ==
+nvt_inp.mdp
+##--FILES--## INITIAL GTP FILE NAME ==
+guesspar.gtp
+##--GROMACS--## GMX EXECUTABLE ==
+/home/nikhil/mysoft/gromacs-2018.3/bin/gmx_d
+##--MC--## MONTE CARLO EQUILIBRATION ITERATIONS ==
+500
+##--MC--## MONTE CARLO QUENCHING ITERATIONS ==
+5000
+##--MC--## MONTE CARLO ANNEALING POINTS ==
+3
+##--MC--## MONTE CARLO INITIAL BETA ==
+0.1
+##--MC--## MONTE CARLO BETA ==
+1.0 10.0 40.0
+##--MC--## MONTE CARLO BETA UPDATE ITERATION ==
+1 500 5000
+##--MC--## USE MINIMUM OF EQUILIBRATION AS STARTING POINT OF PRODUCTION ==
+.TRUE.
+##--ACC--## TRY TO CONTROL ACCEPTANCE RATIO ==
+.TRUE.
+##--ACC--## FREQUENCY OF ESTIMATING ACCEPTANCE RATIO (STEPS) ==
+25
+##--ACC--## SET POINT OF ACCEPTANCE PERCENT (%)  ==
+50
+##--ACC--## PID PARAMETERS Kp, Ki, Kd, damping factor =
+0.1  0.5  0.0 0.7
+##--ACC--## MINIMUM SENS (SIGMA, EPSILON) ==
+0.000001 0.00001
